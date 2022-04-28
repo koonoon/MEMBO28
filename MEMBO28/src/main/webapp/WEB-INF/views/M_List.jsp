@@ -54,8 +54,9 @@
               <div class="member-info">
                 <h4>${mem.mName}</h4>
                 <span>${mem.mBirth}</span>
-                <p>${mem.mEmail}</p>
-                
+                <p>${mem.mEmail}</p><br/>
+                <p><a class="getstarted scrollto" href="#about">수정</a><p>
+                 <p><a class="getstarted scrollto" href="#about">삭제</a><p>
               </div>
             </div>
           </div>
