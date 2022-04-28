@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member">
+
+	<!-- 회원가입 -->
+	<insert id="mJoin" parameterType="member">
+	INSERT INTO MEMBER VALUES(#{mId}, #{mPw}, #{mName}, #{mBirth, jdbcType=VARCHAR}, #{mGender, jdbcType=VARCHAR}, 
+							#{mPhone}, #{mAddr, jdbcType=VARCHAR}, #{mEmail}, #{mProfileName, jdbcType=VARCHAR})
+	</insert>
+
+	<!-- 아이디 중복체크 -->
+	<select id="idCheck" parameterType="String" resultType="String">
+		SELECT MID FROM MEMBER WHERE MID=#{mId}
+	</select>
+	
+	<!-- 회원수 검색 -->
+	<select id="mCount" resultType="int">
+	 	SELECT COUNT(*) FROM MEMBER
+	</select>
+	
+	<!-- 회원목록 -->
+	<select id="mList" parameterType="paging" resultType="member">
+		SELECT * FROM MLIST WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<!-- 회원상세보기 -->
+	<select id="mView" parameterType="String" resultType="member">
+		SELECT * FROM MEMBER WHERE MID = #{mId}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="mLogin" parameterType="member" resultType="member">
+		SELECT * FROM MEMBER WHERE MID = #{mId} AND MPW = #{mPw}
+	</select>
+	
+	<!-- 회원수정 -->
+	<update id="mModify" parameterType="member">
+		UPDATE MEMBER SET MPW=#{mPw}, MNAME=#{mName}, MBIRTH=#{mBirth}, 
+		MGENDER=#{mGender}, MPHONE=#{mPhone}, MADDR=#{mAddr}, MEMAIL=#{mEmail}, MPROFILENAME=#{mProfileName} 
+		WHERE MID=#{mId}
+	</update>
+	
+	<!-- 회원삭제 -->
+	<delete id="mDelete" parameterType="String">
+		DELETE FROM MEMBER WHERE MID=#{mId}
+	</delete>
+	
+</mapper>
