@@ -37,6 +37,29 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto">Arsha</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="resources/assets//img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar bg-info">
+        <ul>
+          <li><a class="nav-link scrollto" onclick="location.href='mList'">회원목록</a></li>
+          <li><a class="nav-link   scrollto" onclick="location.href='bList'">게시글 목록</a></li> 
+          <li><a class="nav-link   scrollto" onclick="location.href='bWriteForm'">게시글 작성</a></li>
+          <li><a class="getstarted scrollto" onclick="location.href='mViewme'">내정보</a></li>
+          <li><a class="getstarted scrollto" onclick="location.href='mLogout'">로그아웃</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
 <body>
  <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
@@ -52,11 +75,11 @@
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
               <div class="pic"><img src="resources/profile/${mem.mProfileName}" width="200px" class="img-fluid" alt=""></div>
               <div class="member-info">
+              	<h4><a href="mView?mId=${mem.mId}">${mem.mId}</a></h4>
                 <h4>${mem.mName}</h4>
                 <span>${mem.mBirth}</span>
                 <p>${mem.mEmail}</p><br/>
-                <p><a class="getstarted scrollto" href="#about">수정</a><p>
-                 <p><a class="getstarted scrollto" href="#about">삭제</a><p>
+                
               </div>
             </div>
           </div>
@@ -66,6 +89,8 @@
 
       </div>
     </section><!-- End Team Section -->
+    <div class="text-center mt-3 mt-sm-3">
+    <ul class="pagination justify-content-center mb-0">
     <c:if test="${paging.page <= 1}">[이전] </c:if>
 	<c:if test="${paging.page > 1}">
 		<a href="mList?page=${paging.page-1}&limit=${paging.limit}">[이전] </a>
@@ -91,5 +116,7 @@
 	<c:if test="${paging.page < paging.maxPage}">
 		<a href="mList?page=${paging.page+1}&limit=${paging.limit}"> [다음]</a>
 	</c:if>
+	</ul>
+	</div>
 </body>
 </html>

@@ -1,12 +1,12 @@
 package com.icia.mbo.controller;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,17 +60,7 @@ public class MController {
 		return mav;
 	}
 	
-	// idCheck : 아이디 중복체크
-	@RequestMapping(value = "/idCheck", method = RequestMethod.GET)
-	public ModelAndView idCheck(@RequestParam(value="mId", required=true)String mId)  {
-		System.out.println("[1]jsp에서 Controller 가져온 mId 정보\n " + mId);
 	
-		mav = msvc.idCheck(mId);
-		
-		System.out.println("[4]service에서 Controller 가져온 mav 정보\n " + mav);
-		
-		return mav;
-	}
 	
 	// mList : 회원목록보기 메소드
 	@RequestMapping(value = "/mList", method = RequestMethod.GET)
@@ -90,6 +80,12 @@ public class MController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/mViewme", method = RequestMethod.GET)
+	public String mViewme() {
+		return "M_Viewme";
+	}
+	
 	
 	// mLogin : 로그인 메소드
 	@RequestMapping(value = "/mLogin", method = RequestMethod.POST)

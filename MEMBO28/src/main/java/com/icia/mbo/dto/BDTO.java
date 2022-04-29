@@ -13,6 +13,7 @@ public class BDTO {
 	
 	private MultipartFile bFile;
 	private String bFileName;
+	
 	public int getbNum() {
 		return bNum;
 	}

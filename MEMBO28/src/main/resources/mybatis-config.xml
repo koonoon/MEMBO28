@@ -4,6 +4,7 @@
 <configuration>
 <typeAliases>
 	<typeAlias type="com.icia.mbo.dto.MDTO" alias="member"/>
+	<typeAlias type="com.icia.mbo.dto.BDTO" alias="board"/>
 	<typeAlias type="com.icia.mbo.dto.PDTO" alias="paging"/>
 </typeAliases>
 

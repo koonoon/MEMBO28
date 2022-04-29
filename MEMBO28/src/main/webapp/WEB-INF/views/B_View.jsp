@@ -28,30 +28,66 @@
     <link href="resources/assets/css/main.css" rel="stylesheet" media="all">
 </head>
 
+
 <body>
+
+
+
    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">로그인</h2>
-                    <form action="mLogin" method="POST">
+                    <h2 class="title">게시글정보</h2>
+                    <form>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">ID</label>
-                                    <input class="input--style-4" type="text" name="mId">
+                                    <label class="label">작성자</label>
+                                    <h2>${view.bWriter}</h2>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Password</label>
-                                    <input class="input--style-4" type="password" name="mPw">
+                                    <label class="label">제목</label>
+                                    <h2>${view.bTitle}</h2>
                                 </div>
                             </div>
-                        </div> 
-                        <div class="p-t-15">
-                            <input type="submit" class="btn btn--radius-2 btn--blue" value="Log-in">
                         </div>
+                         <div class="p-t-15">
+                           
+                        </div>
+                          <div class="row row-space">
+                                <div class="input-group">
+                                    <label class="label">내용</label>
+                                   <h2>${view.bContent}</h2>
+                                </div>
+                            
+                        </div>
+                         <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">조회수</label>
+                                    <div class="input-group-icon">
+                                        <h2>${view.bHit}</h2>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">첨부파일</label>
+                                    <div class="p-t-10">
+                                       <h2><img src="resources/fileUpload/${view.bFileName}" width="200px"></h2>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                       <input type="button" onclick="location.href='bModiForm?bNum=${view.bNum}'" value="수정">
+                       <br/>
+                       <br/>
+                 	   <input type="button" onclick="location.href='bDelete?bNum=${view.bNum}'" value="삭제">
+                        
                     </form>
                 </div>
             </div>
@@ -69,7 +105,7 @@
 
    
     <script src="resources/assets/js/global.js"></script>
-   
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 
 </body>

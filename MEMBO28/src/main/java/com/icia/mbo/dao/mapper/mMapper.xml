@@ -38,7 +38,7 @@
 	<!-- 회원수정 -->
 	<update id="mModify" parameterType="member">
 		UPDATE MEMBER SET MPW=#{mPw}, MNAME=#{mName}, MBIRTH=#{mBirth}, 
-		MGENDER=#{mGender}, MPHONE=#{mPhone}, MADDR=#{mAddr}, MEMAIL=#{mEmail}, MPROFILENAME=#{mProfileName} 
+		MGENDER=#{mGender}, MPHONE=#{mPhone}, MADDR=#{mAddr, jdbcType=VARCHAR}, MEMAIL=#{mEmail}, MPROFILENAME=#{mProfileName} 
 		WHERE MID=#{mId}
 	</update>
 	
@@ -46,5 +46,7 @@
 	<delete id="mDelete" parameterType="String">
 		DELETE FROM MEMBER WHERE MID=#{mId}
 	</delete>
+	
+	
 	
 </mapper>

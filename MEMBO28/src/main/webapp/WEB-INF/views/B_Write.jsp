@@ -33,25 +33,33 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">로그인</h2>
-                    <form action="mLogin" method="POST">
+                    <h2 class="title">게시글등록</h2>
+                    <form action="bWrite" method="POST" enctype="multipart/form-data">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">ID</label>
-                                    <input class="input--style-4" type="text" name="mId">
+                                    <label class="label">제목</label>
+                                    <input class="input--style-4" type="text" name="bTitle">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Password</label>
-                                    <input class="input--style-4" type="password" name="mPw">
+                                    <label class="label">내용</label>
+                                    <textarea rows="20" cols="40" name="bContent"></textarea>
                                 </div>
                             </div>
-                        </div> 
+                        </div>           
+                       <div class="input-group">
+                                    <label class="label">첨부파일</label>
+                                    <input class="input--style-4" type="file" name="bFile">
+                                </div>  
                         <div class="p-t-15">
-                            <input type="submit" class="btn btn--radius-2 btn--blue" value="Log-in">
+                            <input type="submit" class="btn btn--radius-2 btn--blue" value="등록">
+                            <br/>
+                            <br/>
+                            <input type="reset" class="btn btn--radius-2 btn--blue" value="다시작성">
                         </div>
+                        <input type="hidden" name="bWriter" value="${login.mId}">
                     </form>
                 </div>
             </div>
@@ -69,7 +77,7 @@
 
    
     <script src="resources/assets/js/global.js"></script>
-   
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 
 </body>

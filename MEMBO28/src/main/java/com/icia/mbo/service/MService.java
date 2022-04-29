@@ -81,25 +81,6 @@ public class MService {
 		return mav;
 	}
 
-	// 아이디 중복체크 메소드
-	public ModelAndView idCheck(String mId) {
-		System.out.println("[2]controller에서 service로 가져온 mId 정보\n " + mId);
-		
-		String checkId = mdao.idCheck(mId);
-		
-		if(checkId==null) {
-			// 아이디 사용가능
-			mav.setViewName("M_Join1");
-			mav.addObject("checkId", mId);
-		} else {
-			// 아이디 사용불가
-			mav.setViewName("M_Join2");
-			mav.addObject("checkId", mId);
-		}
-		
-		return mav;
-	}
-
 	// 회원목록 메소드(페이징처리)
 	public ModelAndView mList(int page, int limit) {
 		
@@ -231,12 +212,15 @@ public class MService {
 		int result = mdao.mDelete(mId);
 		
 		if(result>0) {
-			mav.setViewName("redirect:/mList");
+			System.out.println("d");
+			mav.setViewName("index");
 		} else {
-			mav.setViewName("redirect:/mView?mId="+mId);
+			System.out.println("x");
+			mav.setViewName("redirect:/mList");
 		}
 		
 		return mav;
 	}
 
+	
 }
