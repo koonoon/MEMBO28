@@ -47,6 +47,9 @@
 		DELETE FROM MEMBER WHERE MID=#{mId}
 	</delete>
 	
+	<select id="checkId" parameterType="String" resultType="String">
+		SELECT MID FROM MEMBER WHERE MID=#{mId}
+	</select>
 	
 	
 </mapper>

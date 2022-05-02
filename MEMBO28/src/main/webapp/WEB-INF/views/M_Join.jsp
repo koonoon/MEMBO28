@@ -39,7 +39,8 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">ID</label>
-                                    <input class="input--style-4" type="text" name="mId">
+                                    <input class="input--style-4" type="text" name="mId" id="mId" onchange="checkId()">
+                                    <span id="confirmId"></span>
                                 </div>
                             </div>
                             <div class="col-2">
@@ -180,6 +181,40 @@
             }
         }).open();
     }
+</script>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+<script>
+	function checkId(){
+		
+		var mId = document.getElementById('mId').value;
+		var confirmId = document.getElementById('confirmId');
+		
+		$.ajax({
+			type : "POST" ,
+			url : "checkId" ,
+			data : { "mId" : mId },
+			dataType : "text" ,
+			
+			success : function(msg){ // 통신 성공시
+				if(msg=="OK"){
+					confirmId.style.color="#0000ff";
+					confirmId.innerHTML = "사용가능한 아이디";
+				} else{
+					confirmId.style.color="#ff0000";
+					confirmId.innerHTML = "사용중인 아이디";
+				}
+			},
+			error : function(){			// 통신 실패시
+				alert('checkId()함수 통신실패!');
+			}
+		});
+		
+	}
 </script>
 
 </body>

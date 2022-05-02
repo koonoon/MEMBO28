@@ -62,6 +62,11 @@ public class MDAO {
 	}
 
 
+	public String checkId(String mId) {
+		return sql.selectOne("Member.checkId", mId);
+	}
+
+
 	
 
 

@@ -222,5 +222,17 @@ public class MService {
 		return mav;
 	}
 
+	public String checkId(String mId) {
+		String id = mdao.checkId(mId);
+		String msg = null;
+		
+		if(id==null) {
+			msg = "OK";
+		} else {
+			msg = "NO";
+		}
+		return msg;
+	}
+
 	
 }
